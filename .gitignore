@@ -1,0 +1,5 @@
+results/
+resources/
+models/
+.venv
+.DS_Store
