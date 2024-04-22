@@ -15,4 +15,11 @@ The next step will be the following:
 - find an easily readable format for output. 
 - find the average number of words and characters for The Trial. 
 - format outputs and convert to PDF 
+- create architecture for saving prompts and models info 
+
 # Models 
+Mixtral 8x7B 
+
+
+# Sources: 
+https://www.cliffsnotes.com/literature/t/the-trial/critical-essays/structure-and-order-of-chapters-in-the-trial
