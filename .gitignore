@@ -3,3 +3,11 @@ resources/
 models/
 .venv
 .DS_Store
+.pytest_cache/
+
+*/__pycache__/
+*/.ipynb_checkpoints/
+*/.mypy_cache/
+*/.pytest_cache/
+*/.vscode/
+__pycache__
