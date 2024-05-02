@@ -23,3 +23,20 @@ Mixtral 8x7B
 
 # Sources: 
 https://www.cliffsnotes.com/literature/t/the-trial/critical-essays/structure-and-order-of-chapters-in-the-trial
+
+
+# Usage 
+
+## Prompt example: 
+```
+PROMPT_EXAMPLE = {
+    'name': 'prompt_name',
+    'description': 'This is a most basic prompt for the task.',
+    'prompt': [
+      {
+        'role': 'user',
+        'content': "Generate a missing chapter for Kafka's novel The Trial"
+      },
+    ]
+}
+```
