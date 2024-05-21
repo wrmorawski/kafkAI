@@ -34,18 +34,17 @@ def ollama_pull(ctx, models):
         ctx.run(f"ollama pull {model}")
 
 
-@task(optional=["file"])
-def ollama_generate(ctx, models=None, file=None):
-    """"
+@task(optional=["file", "models", "prompts"],)
+def ollama_generate(ctx, models=None, prompts=None, file=None):
+    """"    
     Generates text for models
 
     optional file argument specifies .toml file with parameters
 
     example use: 
-    a) inv ollama-generate tinyllama
+    a) inv ollama-generate -m tinyllama -p mbp 
     b) inv ollama-generate --file config.toml 
     """
-
     if file is not None: 
         #read_toml_file
         if not os.path.exists(file):
@@ -56,5 +55,6 @@ def ollama_generate(ctx, models=None, file=None):
             pass
     else: 
         models_list = models.split()
-    
-    get_responses(models_list, MOST_BASIC_PROMPT)
+        prompts_list = prompts.split()
+
+    get_responses(models_list, prompts_list)

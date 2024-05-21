@@ -1,0 +1,3 @@
+[arguments]
+models = ['llama2', 'tinyllama']
+messeges = ['mbp']
