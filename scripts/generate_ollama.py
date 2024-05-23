@@ -2,6 +2,7 @@
 import ollama
 
 from utils.save_to_file import save_to_pdf
+from utils.maintenance import check_runtime
 
 
 def get_responses(models: list[str], messages: list[str]) -> None:
@@ -14,7 +15,7 @@ def get_responses(models: list[str], messages: list[str]) -> None:
             except Exception as e:
                 print(f"Skipping item due to an unexpected error: {e}")
 
-
+@check_runtime
 def get_single_ai_response_and_save_it(model_id, message) -> None:
   """This function generates response from a signle user prompt and saves it to a PDF file.
   

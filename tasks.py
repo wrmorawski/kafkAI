@@ -54,7 +54,14 @@ def ollama_generate(ctx, models=None, prompts=None, file=None):
             #read all settings from toml file 
             pass
     else: 
+        if models is None: 
+            models = "tinyllama"
+        if prompts is None:
+            prompts = "mbp"
+
         models_list = models.split()
         prompts_list = prompts.split()
 
-    get_responses(models_list, prompts_list)
+    print(models_list)
+    print(prompts_list)
+    # get_responses(models_list, prompts_list)
