@@ -52,7 +52,9 @@ def ollama_generate(ctx, models=None, prompts=None, file=None):
             return
         else: 
             #read all settings from toml file 
-            pass
+            config = toml.load(file)
+            models_list = config['arguments']['models']
+            prompts_list = config['arguments']['messeges']
     else: 
         if models is None: 
             models = "tinyllama"
