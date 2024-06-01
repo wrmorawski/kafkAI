@@ -31,7 +31,7 @@ def get_single_ai_response_and_save_it(model_id, message) -> None:
   response = ollama.chat(model=model_id, messages=message.prompt)
 
   # Save response to PDF
-  text = f'model: {model_id}\n created_at: {response["created_at"]}\n prompt: {message["prompt"][0]["content"]}\n\n response: \n {response["message"]["content"]}' 
+  text = f'model: {model_id}\n created_at: {response["created_at"]}\n prompt: {message.prompt[0]["content"]}\n\n response: \n {response["message"]["content"]}' 
   
   filename = f'{message["name"]}_{model_id}_{response["created_at"]}.pdf' 
   
