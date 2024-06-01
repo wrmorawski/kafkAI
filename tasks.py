@@ -3,7 +3,7 @@ import os
 from utils.maintenance import clear_test_outputs
 import toml 
 from scripts.generate_ollama import get_responses
-from prompts.prompts import MOST_BASIC_PROMPT
+from prompts.prompts import MOST_BASIC_PROMPT, Prompt
 
 @task
 def remove_pycache(ctx):
@@ -62,6 +62,4 @@ def ollama_generate(ctx, models=None, prompts=None, file=None):
         models_list = models.split()
         prompts_list = prompts.split()
 
-    print(models_list)
-    print(prompts_list)
-    # get_responses(models_list, prompts_list)
+    get_responses(models_list, prompts_list)
