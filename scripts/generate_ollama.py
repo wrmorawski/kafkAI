@@ -6,7 +6,7 @@ from utils.maintenance import check_runtime
 from prompts.prompts import Prompt
 
 
-def get_responses(models: list[str], prompts: list[str]) -> None:
+def get_responses(models: list[str], prompts: list[str], stream=False) -> None:
     """This function generates response for many models and messages and saves it to a PDF file."""
     for model in models:
         for prompt_name in prompts:
@@ -14,12 +14,12 @@ def get_responses(models: list[str], prompts: list[str]) -> None:
             
             print(f'Model: {model} \nPrompt: {prompt.name}')
             try: 
-                get_single_ai_response_and_save_it(model, prompt)
+                get_single_ai_response_and_save_it(model, prompt, stream=stream)
             except Exception as e:
                 print(f"Skipping item due to an unexpected error: {e}")
 
 @check_runtime
-def get_single_ai_response_and_save_it(model_id, message) -> None:
+def get_single_ai_response_and_save_it(model_id, message, stream: bool) -> None:
   """This function generates response from a signle user prompt and saves it to a PDF file.
   
     Args:
@@ -29,7 +29,12 @@ def get_single_ai_response_and_save_it(model_id, message) -> None:
   """
   # Get response
   print('Getting response...')
-  response = ollama.chat(model=model_id, messages=message.prompt)
+  response = ollama.chat(model=model_id, messages=message.prompt, stream=stream)
+
+  if stream:
+    for chunk in response:
+      print(chunk['message']['content'], end='', flush=True)
+    return
 
   # Save response to PDF
   print('Saving response to PDF...')
@@ -38,3 +43,4 @@ def get_single_ai_response_and_save_it(model_id, message) -> None:
   filename = f'{message.name}_{model_id}_{response["created_at"]}.pdf' 
   
   save_to_pdf(text, filename)
+
