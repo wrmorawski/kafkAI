@@ -26,6 +26,28 @@ MOST_BASIC_PROMPT = Prompt(
     ]
 )
 
+
+SHORT_CHAPTER_SUMMARY_PRMOPT = Prompt(
+    name = 'scsp',
+    description = 'This is the multi-role prompt with previous and next chapters summary.',
+    prompt= [
+      {
+        'role': 'system',
+        'content': "Write in the literary style of Franz Kafka"   
+      },
+      {
+        'role': 'user',
+        'content': "Generate a missing fragments of Kafka's novel The Trial. In the unfinished chapter's Josef K. decides to dismiss his lawyer, Herr Huld, \
+          despite attempts from the lawyer, Leni, and another client, Block, to dissuade him. K. confronts the lawyer, learns about Leni's peculiar attraction to accused men, and witnesses the lawyer's control over Block.\
+          The next chapter K. is tasked with escorting an influential Italian client, but the client doesn't show up. At the cathedral, K. encounters the prison chaplain"
+      }
+    ]
+)
+
+#system with lenght. Get the mean length of chapters. 
+
+
+
 # SYS_KAFKA = "Write in the style of Franz Kafka"
 
 # Maybe generate what happens in those chapters.    
