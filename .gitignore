@@ -11,3 +11,5 @@ models/
 */.pytest_cache/
 */.vscode/
 __pycache__
+
+info.log
