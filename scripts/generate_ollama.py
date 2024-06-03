@@ -44,3 +44,5 @@ def get_single_ai_response_and_save_it(model_id, message, stream: bool) -> None:
   
   save_to_pdf(text, filename)
 
+
+#TODO move try error to get_single.. function 
