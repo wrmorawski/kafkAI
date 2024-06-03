@@ -2,6 +2,9 @@ import os
 import time 
 
 from utils.constants import OUTPUT_PATH
+from utils.logger import configure_logger
+
+logger = configure_logger(__name__)
 
 def clear_test_outputs():
     for file in os.listdir('./outputs'):
@@ -15,7 +18,7 @@ def check_runtime(func):
         result = func(*args, **kwargs)
         end_time = time.time()
         runtime = end_time - start_time
-        print(f"Function '{func.__name__}' took {runtime:.6f} seconds ( {runtime/60:.2f} minutes) to run.")
+        logger.info(f"Function '{func.__name__}' took {runtime:.6f} seconds ( {runtime/60:.2f} minutes) to run.")
         return result
     return wrapper
 
