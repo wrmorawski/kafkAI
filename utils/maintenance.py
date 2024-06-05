@@ -15,10 +15,15 @@ def clear_test_outputs():
 def check_runtime(func):
     def wrapper(*args, **kwargs):
         start_time = time.time()
-        result = func(*args, **kwargs)
-        end_time = time.time()
-        runtime = end_time - start_time
-        logger.info(f"Function '{func.__name__}' took {runtime:.6f} seconds ( {runtime/60:.2f} minutes) to run.")
-        return result
+        try: 
+            result = func(*args, **kwargs)
+            return result
+        except Exception as e:
+            raise 
+        finally: 
+            end_time = time.time()
+            runtime = end_time - start_time
+            logger.info(f"Function '{func.__name__}' took {runtime:.6f} seconds ( {runtime/60:.2f} minutes) to run.")
+
     return wrapper
 
