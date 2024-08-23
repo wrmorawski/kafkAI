@@ -13,3 +13,4 @@ models/
 __pycache__
 
 info.log
+creds.sh
